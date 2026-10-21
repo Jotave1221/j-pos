@@ -3,6 +3,5 @@ def way_path(way):
     for i in way:
         path += f"{i}/"
         
-def path_way(path)
+def path_way(path):
     return path.split("/")
-

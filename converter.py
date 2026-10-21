@@ -4,7 +4,7 @@ from pathlib import Path
 raiz = Path("programas")
 fs = json.loads(Path("filesystem.json").read_text())
 
-for arq in raiz.rglob("*.prog"):
+for arq in raiz.rglob("*.py"):
     partes = arq.relative_to(raiz).parts
     pasta = fs
     for parte in partes[:-1]:

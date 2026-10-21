@@ -1,19 +1,20 @@
-users=fs["etc"]["users"]
+users = fs["etc"]["users"]
 
 print("welcome to j-pos!")
 def login():
     while True:
-        user=input("user:")
-        passk=input("password:")
-        if user in users:
-            if passk==users[user][1]:
-                os.system("clear")
-                return users[user]
-            else:
+        user = input("user:")
+        passk = input("password:")
+        for u in users.values():
+            if u[0] == user:
+                if passk == u[1]:
+                    os.system("clear")
+                    return u
                 print("wrong password!")
+                break
         else:
             print("user does not exist!")
 
-user=login()
+user = login()
 
-exec(fs["sbin"]["shell.prog"])
+exec(fs["sbin"]["shell.py"])

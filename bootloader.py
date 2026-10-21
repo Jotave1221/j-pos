@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import fstools
 
 def load():
     with open("filesystem.json","r") as fs:
@@ -18,6 +19,6 @@ def save_fs(fs):
 
 fs=load()
 os.system("clear")
-exec(fs["sbin"]["login.prog"])
+exec(fs["sbin"]["login.py"])
 
 
