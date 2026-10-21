@@ -1,0 +1,20 @@
+{
+  "sbin": {
+    "shell.prog": "curdir=fs\nwhile True:\n    command=input(f\"{user[0]}@j-pos {curdir} $ \")\n    if f\"{command}.prog\" in fs[\"bin\"]:\n        if fs[\"bin\"][f\"{command}.prog\"][1] <= user[1]:\n            exec(fs[\"bin\"][f\"{command}.prog\"][0])\n        else:\n            if command.split()[1]==\"sudo\" and user[2]==1:\n                while True:\n                    ptry=input(\"(sudo) root password:\")\n                    if ptry==users[\"root\"][1]:\n                        puser=user\n                        user=users[\"root\"]\n                        exec(fs[\"bin\"][f\"{command}.prog\"][0])\n                        user=puser\n                        break\n                    else:\n                        print(\"(sudo) incorrect password! try again.\")\n            else:\n                print(\"you forgot sudo or tryed to use it whit no permission\")\n    else:\n        print(\"program does not exist!\")\n\n",
+    "login.prog": "users=fs[\"etc\"][\"users\"]\n\nprint(\"welcome to j-pos!\")\ndef login():\n    while True:\n        user=input(\"user:\")\n        passk=input(\"password:\")\n        if user in users:\n            if passk==users[user][1]:\n                os.system(\"clear\")\n                return users[user]\n            else:\n                print(\"wrong password!\")\n        else:\n            print(\"user does not exist!\")\n\nuser=login()\n\nexec(fs[\"sbin\"][\"shell.prog\"])"
+  },
+  "etc": {
+    "users": {
+      "root.user": [
+        "root",
+        "1234",
+        2
+      ],
+      "jotave.user": [
+        "jotave",
+        "1221",
+        1
+      ]
+    }
+  }
+}
